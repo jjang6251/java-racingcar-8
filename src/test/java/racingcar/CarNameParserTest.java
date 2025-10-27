@@ -24,7 +24,6 @@ public class CarNameParserTest {
     void 자동차_이름_5자_초과() {
         String input = "pobibi,woniwoni";
 
-
         assertThatThrownBy(() -> carService.createRace(input))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("car name length exceeded");

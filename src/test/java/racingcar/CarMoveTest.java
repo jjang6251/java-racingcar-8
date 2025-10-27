@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 import racingcar.domain.Car;
 import racingcar.domain.CarName;
 import racingcar.domain.MoveStrategy;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class CarMoveTest {
