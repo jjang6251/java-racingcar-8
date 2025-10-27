@@ -2,6 +2,7 @@ package racingcar.view;
 
 import camp.nextstep.edu.missionutils.*;
 import java.util.List;
+import racingcar.dto.FinalResultDto;
 import racingcar.dto.RoundResultDto;
 
 public class CarView {
@@ -15,7 +16,9 @@ public class CarView {
         String s = Console.readLine();
         try {
             int n = Integer.parseInt(s);
-            if(n <= 0) throw new IllegalArgumentException("The number of attempts must be a positive integer.");
+            if (n <= 0) {
+                throw new IllegalArgumentException("The number of attempts must be a positive integer.");
+            }
             return n;
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException("should enter a number");
@@ -25,5 +28,10 @@ public class CarView {
     public void printRound(List<RoundResultDto> results) {
         results.forEach(r -> System.out.println(r.name() + " : " + "-".repeat(r.position())));
         System.out.println();
+    }
+
+    public void printFinalWinner(FinalResultDto resultDto) {
+        var result = String.join(",", resultDto.names());
+        System.out.println("최종 우승자 : " + result);
     }
 }

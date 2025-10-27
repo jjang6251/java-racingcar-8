@@ -6,6 +6,7 @@ import racingcar.domain.Car;
 import racingcar.domain.CarName;
 import racingcar.domain.MoveStrategy;
 import racingcar.domain.Race;
+import racingcar.dto.FinalResultDto;
 import racingcar.dto.RoundResultDto;
 
 public class CarServiceImpl implements CarService {
@@ -34,6 +35,11 @@ public class CarServiceImpl implements CarService {
         return race.cars().stream()
                 .map(c -> new RoundResultDto(c.getName(), c.getPosition()))
                 .toList();
+    }
+
+    @Override
+    public FinalResultDto findWinners(Race race) {
+        return new FinalResultDto(race.findWinner());
     }
 
     private static List<String> inputSeparate(String input) {

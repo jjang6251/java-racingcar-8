@@ -2,6 +2,7 @@ package racingcar.controller;
 
 import java.util.List;
 import racingcar.domain.Race;
+import racingcar.dto.FinalResultDto;
 import racingcar.dto.RoundResultDto;
 import racingcar.service.CarService;
 import racingcar.view.CarView;
@@ -26,5 +27,7 @@ public class CarController {
             List<RoundResultDto> roundResultDto = carService.runOneRound(race);
             carView.printRound(roundResultDto);
         }
+        FinalResultDto finalResultDto = carService.findWinners(race);
+        carView.printFinalWinner(finalResultDto);
     }
 }

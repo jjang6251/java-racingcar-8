@@ -21,4 +21,12 @@ public class Race {
         return Collections.unmodifiableList(cars);
     }
 
+    public List<String> findWinner() {
+        int max = cars.stream()
+                .mapToInt(Car::getPosition)
+                .max()
+                .orElse(0);
+        return cars.stream().filter(c -> c.getPosition() == max).map(Car::getName).toList();
+    }
+
 }
