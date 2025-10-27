@@ -5,6 +5,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.Race;
+import racingcar.domain.RandomMoveStrategy;
 import racingcar.service.CarService;
 import racingcar.service.CarServiceImpl;
 
@@ -15,7 +16,7 @@ public class CarNameParserTest {
 
     @BeforeEach
     void setUp() {
-        carService = new CarServiceImpl();
+        carService = new CarServiceImpl(new RandomMoveStrategy());
     }
 
     @DisplayName("자동차 이름이 5자를 초과하면 예외 발생.")

@@ -1,6 +1,8 @@
 package racingcar.view;
 
 import camp.nextstep.edu.missionutils.*;
+import java.util.List;
+import racingcar.dto.RoundResultDto;
 
 public class CarView {
     public String getCarNameInput() {
@@ -18,5 +20,10 @@ public class CarView {
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException("should enter a number");
         }
+    }
+
+    public void printRound(List<RoundResultDto> results) {
+        results.forEach(r -> System.out.println(r.name() + " : " + "-".repeat(r.position())));
+        System.out.println();
     }
 }

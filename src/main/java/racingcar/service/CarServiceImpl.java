@@ -9,6 +9,12 @@ import racingcar.domain.Race;
 import racingcar.dto.RoundResultDto;
 
 public class CarServiceImpl implements CarService {
+    private final MoveStrategy moveStrategy;
+
+    public CarServiceImpl(MoveStrategy moveStrategy) {
+        this.moveStrategy = moveStrategy;
+    }
+
     @Override
     public Race createRace(String input) {
         List<String> carNames = inputSeparate(input);
@@ -23,7 +29,7 @@ public class CarServiceImpl implements CarService {
     }
 
     @Override
-    public List<RoundResultDto> runOneRound(Race race, MoveStrategy moveStrategy) {
+    public List<RoundResultDto> runOneRound(Race race) {
         race.runRound(moveStrategy);
         return race.cars().stream()
                 .map(c -> new RoundResultDto(c.getName(), c.getPosition()))

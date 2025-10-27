@@ -7,5 +7,5 @@ import racingcar.dto.RoundResultDto;
 
 public interface CarService {
     Race createRace(String input);
-    List<RoundResultDto> runOneRound(Race race, MoveStrategy moveStrategy);
+    List<RoundResultDto> runOneRound(Race race);
 }
